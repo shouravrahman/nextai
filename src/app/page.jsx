@@ -1,7 +1,6 @@
 import { getServerSession } from "next-auth/next";
 import { authOptions } from "./lib/auth";
-import { signOut } from "next-auth/react";
-import { SignInButton, SignOutButton } from "../../components/Button";
+import { SignInButton, SignOutButton } from "../components/Button";
 import Image from "next/image";
 
 export default async function Page() {
