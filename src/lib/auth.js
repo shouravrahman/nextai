@@ -3,10 +3,12 @@ import GoogleProvider from "next-auth/providers/google";
 import FacebookProvider from "next-auth/providers/facebook";
 import DiscordProvider from "next-auth/providers/discord";
 import TwitterProvider from "next-auth/providers/twitter";
+import { MongoDBAdapter } from "@auth/mongodb-adapter";
+import clientPromise from "@/lib/mongodb";
 export const authOptions = {
 	// Secret for Next-auth, without this JWT encryption/decryption won't work
 	secret: process.env.NEXTAUTH_SECRET,
-
+	adapter: MongoDBAdapter(clientPromise),
 	// Configure one or more authentication providers
 	providers: [
 		GithubProvider({
