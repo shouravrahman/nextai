@@ -1,5 +1,5 @@
 import "../styles/globals.css";
-import NextAuthProvider from "./lib/NextAuthProvider";
+import NextAuthProvider from "../lib/NextAuthProvider";
 export default function Layout({ children }) {
 	return (
 		<html lang='en'>

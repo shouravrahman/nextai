@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "./lib/auth";
+import { authOptions } from "../lib/auth";
 import { SignInButton, SignOutButton } from "../components/Button";
 import Image from "next/image";
 
