@@ -5,6 +5,7 @@ import DiscordProvider from "next-auth/providers/discord";
 import TwitterProvider from "next-auth/providers/twitter";
 import { MongoDBAdapter } from "@auth/mongodb-adapter";
 import clientPromise from "@/lib/mongodb";
+import { ServerSession } from "mongodb";
 export const authOptions = {
 	// Secret for Next-auth, without this JWT encryption/decryption won't work
 	secret: process.env.NEXTAUTH_SECRET,
@@ -32,4 +33,22 @@ export const authOptions = {
 			clientSecret: process.env.TWITTER_CLIENT_SECRET,
 		}),
 	],
+	session: {
+		strategy: "jwt",
+	},
+	callbacks: {
+		async jwt({ token, user, account, profile, isNewUser }) {
+			if (user) {
+				token.provider = account?.provider;
+			}
+			return token;
+		},
+
+		async session({ session, user, token }) {
+			if (session.user) {
+				session.user.provider = token.provider;
+			}
+			return session;
+		},
+	},
 };
