@@ -4,7 +4,7 @@ export default function Layout({ children }) {
 	return (
 		<html lang='en'>
 			<head>
-				<title>Next.js</title>
+				<title>Authentication - Shourav Rahman</title>
 			</head>
 			<body>
 				<NextAuthProvider>{children}</NextAuthProvider>
