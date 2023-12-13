@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth/next";
-import { authOptions } from "../lib/auth";
+import { authOptions } from "../lib/NextAuthConfig";
 import { SignInButton, SignOutButton } from "../components/Button";
 import Image from "next/image";
 import { AiFillGithub } from "react-icons/ai";
@@ -13,7 +13,7 @@ const text2 =
 export default async function Page() {
 	const session = await getServerSession(authOptions);
 	return (
-		<main className='w-full flex min-h-screen items-center flex-col justify-center '>
+		<main className='w-full flex min-h-screen items-center flex-col justify-center'>
 			<div className='mx-auto'>
 				<div className='container border border-white relative flex flex-col w-full rounded-lg p-10'>
 					<div className='flex flex-wrap justify-center items-center '>

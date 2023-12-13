@@ -1,5 +1,7 @@
 import "../styles/globals.css";
 import NextAuthProvider from "../lib/NextAuthProvider";
+
+import ToastContainerWrapper from "@/lib/ToastWrapper";
 export default function Layout({ children }) {
 	return (
 		<html lang='en'>
@@ -7,7 +9,10 @@ export default function Layout({ children }) {
 				<title>Authentication - Shourav Rahman</title>
 			</head>
 			<body>
-				<NextAuthProvider>{children}</NextAuthProvider>
+				<NextAuthProvider>
+					<ToastContainerWrapper />
+					{children}
+				</NextAuthProvider>
 			</body>
 		</html>
 	);
