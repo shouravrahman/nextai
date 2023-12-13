@@ -61,6 +61,7 @@ const Register = () => {
 		register,
 		handleSubmit,
 		watch,
+		reset,
 		formState: { errors, isSubmitting },
 	} = useForm({
 		resolver: zodResolver(formSchema),
@@ -77,7 +78,7 @@ const Register = () => {
 				JSON.stringify({ ...values })
 			);
 			console.log(data);
-
+			reset();
 			toast.success(data.message);
 		} catch (error) {
 			toast.error(error.response.data.message);
